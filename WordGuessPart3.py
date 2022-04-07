@@ -1,10 +1,15 @@
-
+import random
 
 def GuessGame():
+    f = open(r'C:\\Projects\\GuessGame\Words.txt', 'r')
+    words = f.readlines()
+    f.close
     history = []
     Remaining = 7
-    Answer = "pasta"
-    Output = ['_','_','_','_','_',]
+    Answer = random.choice(words)
+    Output = []
+    for i in Answer:
+        Output.append('_')
     Winning = 0
     Losing = 0
     while Winning == 0 and Losing == 0:
@@ -25,7 +30,7 @@ def GuessGame():
                 else:
                     Remaining = Remaining - 1
                     if Remaining == 0:
-                        print('You are out of Guesses, you have lost')
+                        print('You are out of Guesses, you have lost, the answer was' + Answer)
                         Losing = 1
                     else:
                         z = guess in history
@@ -48,7 +53,7 @@ def GuessGame():
                 if Count == 0:
                     Remaining = Remaining - 1
                     if Remaining == 0:
-                        print('You are out of Guesses, you have lost')
+                        print('You are out of Guesses, you have lost, the answer was' + Answer)
                         Losing = 1
                     else: 
                         a = guess in history
