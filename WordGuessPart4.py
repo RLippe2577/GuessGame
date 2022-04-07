@@ -21,7 +21,7 @@ def GuessGame():
             else:
                 repeat = 0
         Answer = sAnswer[:len(sAnswer)-1]
-        wordhistory.append(Answer)
+        wordhistory.append(sAnswer)
         Output = []
         for i in Answer:
             Output.append('_')
